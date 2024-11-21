@@ -2,9 +2,9 @@
 
 A Python tool for processing grayscale images by:
 
-Automatically cropping to content
-Adding configurable grid overlay
-Saving with customizable output names
+- Automatically cropping to content
+- Adding configurable grid overlay
+- Saving with customizable output names
 
 ## Requirements
 
@@ -60,20 +60,20 @@ params = GridParameters( image_path=`input_image.png`, grid_interval=30, grid_co
 
 ## Parameters
 
-`image_path`: Path to input grayscale image
-`grid_interval`: Spacing between grid lines in pixels (default: 25)
-`grid_color`: Grid line color (0=black, 1=white, default: 0.55)
-`alpha_grid`: Grid transparency (0=transparent, 1=opaque, default: 0.15)
-`threshold`: Threshold for content detection (default: 0.2)
-`margin`: Extra margin around detected content in pixels (default: 10)
-`output_prefix`: Prefix for output filename (default: `cropped_`)
-`output_suffix`: Suffix for output filename (default: `_focused`)
-`show`: Display result using matplotlib (default: False)
+- `image_path`: Path to input grayscale image
+- `grid_interval`: Spacing between grid lines in pixels (default: 25)
+- `grid_color`: Grid line color (0=black, 1=white, default: 0.55)
+- `alpha_grid`: Grid transparency (0=transparent, 1=opaque, default: 0.15)
+- `threshold`: Threshold for content detection (default: 0.2)
+- `margin`: Extra margin around detected content in pixels (default: 10)
+- `output_prefix`: Prefix for output filename (default: `cropped_`)
+- `output_suffix`: Suffix for output filename (default: `_focused`)
+- `show`: Display result using matplotlib interactively (default: False)
 
 ## TODO
 
-<input disabled="" type="checkbox"> Add example images
-<input disabled="" type="checkbox"> Add support for color images
-<input disabled="" type="checkbox"> Add batch processing capability
-<input disabled="" type="checkbox"> Add more output format options
-<input disabled="" type="checkbox"> Add tests ```
+- <input disabled="" type="checkbox"> Add example images
+- <input disabled="" type="checkbox"> Add support for color images
+- <input disabled="" type="checkbox"> Add batch processing capability
+- <input disabled="" type="checkbox"> Add more output format options
+- <input disabled="" type="checkbox"> Add tests ```

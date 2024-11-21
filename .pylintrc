@@ -1,0 +1,13 @@
+[MASTER]
+ignore=venv
+jobs=1
+load-plugins=pylint.extensions.mccabe
+
+[MESSAGES CONTROL]
+disable=C0114,C0115,C0116
+
+[REPORTS]
+output-format=colorized
+
+[FORMAT]
+max-line-length=100

@@ -25,7 +25,7 @@ Basic usage:
 
 ```bash 
 
-python image_gridder.py input_image.png 
+(python | uv run) image_gridder.py input_image.png 
 
 ```
 
@@ -33,7 +33,7 @@ With options:
 
 ```bash 
 
-python image_gridder.py input_image.png \
+(python | uv run) image_gridder.py input_image.png \
 --grid-interval 30 \
 --grid-color 0.75 \
 --alpha_grid 0.15 \

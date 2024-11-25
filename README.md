@@ -1,4 +1,4 @@
-Image Gridder
+# Image Gridder
 
 A Python tool for processing grayscale images by:
 

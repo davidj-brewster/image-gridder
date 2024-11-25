@@ -63,7 +63,7 @@ params = GridParameters( image_path=`input_image.png`, grid_interval=30, grid_co
 - `image_path`: Path to input grayscale image
 - `grid_interval`: Spacing between grid lines in pixels (default: 25)
 - `grid_color`: Grid line color (0=black, 1=white, default: 0.55)
-- `alpha_grid`: Grid transparency (0=transparent, 1=opaque, default: 0.15)
+- `grid_alpha`: Grid transparency (0=transparent, 1=opaque, default: 0.15)
 - `threshold`: Threshold for content detection (default: 0.2)
 - `margin`: Extra margin around detected content in pixels (default: 10)
 - `output_prefix`: Prefix for output filename (default: `cropped_`)

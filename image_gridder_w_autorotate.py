@@ -72,6 +72,11 @@ class ImageGridder:
             auto_rotate=params.auto_rotate,
             rotation_angle=params.rotation_angle
         ))
+        # Select best available device
+        self.device = torch.device("cuda" if torch.cuda.is_available() 
+                                else "mps" if torch.backends.mps.is_available() 
+                                else "cpu")
+        self.logger.info(f"Using device: {self.device}")
 
     def process(self) -> str:
         """
@@ -113,6 +118,7 @@ class ImageGridder:
                 raise ValueError("Image contains all zeros")
             normalized = np_array / 255.0
             self.image_tensor = torch.from_numpy(normalized).to(torch.float32)
+            self.image_tensor = self.image_tensor.to(self.device)
             # Verify tensor properties
             if torch.isnan(self.image_tensor).any():
                 raise ValueError("NaN values detected in tensor")
@@ -181,7 +187,7 @@ class ImageGridder:
             grid_tensor (torch.Tensor): The image tensor with the grid overlay.
         """
         try:
-            plt.imshow(grid_tensor.numpy(), cmap="gray")
+            plt.imshow(grid_tensor.cpu().numpy(), cmap="gray")
             plt.title("Image with Grid Overlay")
             plt.axis("off")
             plt.show()
@@ -205,8 +211,18 @@ class ImageGridder:
         self.logger.info(f"Saving cropped image as: {output_filename}")
 
         try:
-            image = Image.fromarray((grid_tensor.numpy() * 255).astype(np.int8))
-            image.save(output_filename, compress_level=9)
+            image = Image.fromarray((grid_tensor.cpu().numpy() * 255).astype(np.int8))
+            if self.source_ext.lower() == ".png":
+                image.save(output_filename, compress_level=0)
+            elif self.source_ext.lower() == ".jpg" or self.source_ext.lower() == ".jpeg":
+                image_without_transparency = image.convert("RGB") #jpg does not support transparency
+                image_without_transparency.save(output_filename, quality=95)
+            else:
+                try:
+                    image.save(output_filename)
+                except Exception as e:
+                    image_without_transparency = image.convert("RGB")
+                    image_without_transparency.save(output_filename)
         except Exception as e:
             self.logger.error(f"Error saving image: {output_filename}: {e}")
             raise e
@@ -226,7 +242,7 @@ def parse_args() -> GridParameters:
     parser.add_argument('image_path', help='Path to the input image')
     parser.add_argument('--grid-interval', type=int, default=25, help='Grid spacing in pixels')
     parser.add_argument('--grid-color', type=float, default=0.55, help='Grid color (0=black, 1=white)')
-    parser.add_argument('--alpha_grid', type=float, default=0.15, help='Grid transparency (0=transparent, 1=opaque)')
+    parser.add_argument('--grid-alpha', type=float, default=0.2, help='Grid transparency (0=transparent, 1=opaque)')
     parser.add_argument('--threshold', type=float, default=0.2, help='Threshold for non-black areas')
     parser.add_argument('--margin', type=int, default=10, help='Margin around detected object')
     parser.add_argument('--output-prefix', default='cropped_', help='Output filename prefix')
@@ -239,7 +255,7 @@ def parse_args() -> GridParameters:
         image_path=args.image_path,
         grid_interval=args.grid_interval,
         grid_color=args.grid_color,
-        alpha_grid=args.alpha_grid,
+        alpha_grid=args.grid_alpha,
         threshold=args.threshold,
         margin=args.margin,
         output_prefix=args.output_prefix,

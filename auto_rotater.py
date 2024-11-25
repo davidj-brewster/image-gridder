@@ -12,13 +12,13 @@ import matplotlib.pyplot as plt
 class RotationParameters:
     auto_rotate: bool = True
     rotation_angle: float = 0.0
+    device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 class RotationWindow(QMainWindow):
     def __init__(self, tensor: torch.Tensor, rotate_fn, parent=None):
         super().__init__(parent)
         self.tensor = tensor
         self.rotate_fn = rotate_fn
-        self.result = {"angle": 0.0, "confirmed": False}
         self.setup_ui()
 
     def setup_ui(self):
@@ -72,7 +72,8 @@ class AutoRotator:
     def __init__(self, params: RotationParameters):
         self.params = params
         self.logger = logging.getLogger(__name__)
-
+        self.logger.info(f"Using device: {self.params.device}")
+        
     def detect_and_adjust_midline(self, tensor: torch.Tensor) -> torch.Tensor:
         if self.params.auto_rotate:
             return self._auto_rotate(tensor)
@@ -135,6 +136,8 @@ class AutoRotator:
             angle=-angle,  # Negative for clockwise rotation
             interpolation=TF.InterpolationMode.BILINEAR
         )
+
+        rotated=rotated.to(self.params.device)
         
         # Compute edges on rotated image
         padding_y = torch.nn.functional.pad(rotated, (0, 0, 0, 1), mode='replicate')

@@ -38,14 +38,8 @@ With options:
 
 ```bash 
 
-(python | uv run) image_gridder.py input_image.png \
---grid-interval 30 \
---grid-color 0.75 \
---alpha_grid 0.15 \
---threshold 0.2 \
---margin 10 \
---[auto_rotate]
---[show]
+export IMAGE_FILE="example_image.jpg"
+uv run ./image_gridder_w_autorotate.py --auto-rotate  --margin 100  $IMAGE_FILE   --show --grid-interval 100 --grid-color 0.2 --grid-alpha 0.5
 
 ```
 
@@ -54,9 +48,6 @@ With options:
 ```python 
 
 from image_gridder_w_autorotate import GridParameters, ImageGridder
-
-#Basic usage# 
-(python | uv run) image_gridder_basic).py input_image.png 
 
 params = GridParameters(image_path=`input_image.png`) gridder = ImageGridder(params) output_file = gridder.process()
 
@@ -80,9 +71,7 @@ params = GridParameters( image_path=`input_image.png`, grid_interval=30, grid_co
 
 ## TODO
 
-- <input disabled="" type="checkbox"> Add example images
 - <input disabled="" type="checkbox"> Add batch processing capability
-- <input disabled="" type="checkbox"> Add batch processing capability
-- <input disabled="" type="checkbox"> Add grid markings
+- <input disabled="" type="checkbox"> Add grid axis markings
 - <input disabled="" type="checkbox"> Resizing of images based on "acceptable" image dimensions (useful for providing images to claude/chatgpt)
 - <input disabled="" type="checkbox"> Add tests 

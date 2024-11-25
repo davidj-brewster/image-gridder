@@ -61,10 +61,11 @@ INFO:__main__:Image saved as: cropped_example-image_focused.jpg - dimensions x=[
 
 This gets much more interesting when combined with Claude, here we go:
 
-![image](https://github.com/user-attachments/assets/e510c311-25cf-48e1-ba2e-a8c28239bf0a)
-
+![image](https://github.com/user-attachments/assets/50f74ed4-7897-43e6-8367-729759ae72ea)
 
 ### As a Python Module
+
+Alternatively, just import the module within your existing code
 
 ```python 
 

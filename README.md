@@ -14,44 +14,23 @@ claude.ai is surprisingly excellent at image segmentation and analysis but it ca
 ## Requirements
 
 ```bash 
-brew install uv #uv simplifies package management
-uv init
-uv venv
-uv add -r requirements.txt
+
+git clone #this repository
+brew install uv ;  uv init; uv venv; uv add -r requirements.txt  #setup uv (or use pip natively)
 uv pip install -r requirements.txt
 
 ```
 
-## Usage
-
-### As a Command Line Tool
-
-Basic usage: 
-
-```bash 
-
-(python | uv run) image_gridder_w_autorotate.py input_image.png 
-
-```
-
-With options: 
+## Usage example: CLI
 
 ```bash 
 
 export IMAGE_FILE="example_image.jpg"
 uv run ./image_gridder_w_autorotate.py --auto-rotate  --margin 100  $IMAGE_FILE   --show --grid-interval 100 --grid-color 0.2 --grid-alpha 0.5
-```
-
-Output is as follows
-
-```bash
-
+...
 INFO:__main__:Using device: mps
-INFO:__main__:Loading image: example-image.jpg
 INFO:auto_rotater:Best alignment angle: -2.80°
-INFO:__main__:New image dimensions: x=[1331], y=[998]
 INFO:__main__:Gridlines added with interval: 100px
-INFO:__main__:Image saved as: cropped_example-image_focused.jpg - dimensions x=[1331], y=[998]
 ```
 
 ![image](https://github.com/user-attachments/assets/1bff50cf-d320-4f12-aab7-c25948edf507)
@@ -60,7 +39,7 @@ This gets much more interesting when combined with Claude, here we go:
 
 ![image](https://github.com/user-attachments/assets/50f74ed4-7897-43e6-8367-729759ae72ea)
 
-### As a Python Module
+## As Python Module
 
 Alternatively, just import the module within your existing code
 

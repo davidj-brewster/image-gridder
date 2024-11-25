@@ -1,4 +1,4 @@
-# Image Gridder
+![image](https://github.com/user-attachments/assets/b10ba069-03e9-424f-a44b-14f780c08ee1)# Image Gridder
 
 A Python tool for processing grayscale images by:
 
@@ -42,6 +42,8 @@ export IMAGE_FILE="example_image.jpg"
 uv run ./image_gridder_w_autorotate.py --auto-rotate  --margin 100  $IMAGE_FILE   --show --grid-interval 100 --grid-color 0.2 --grid-alpha 0.5
 
 ```
+
+![image](https://github.com/user-attachments/assets/1bff50cf-d320-4f12-aab7-c25948edf507)
 
 ### As a Python Module
 

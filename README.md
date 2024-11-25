@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b10ba069-03e9-424f-a44b-14f780c08ee1)# Image Gridder
+Image Gridder
 
 A Python tool for processing grayscale images by:
 

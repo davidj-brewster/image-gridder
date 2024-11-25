@@ -1,9 +1,7 @@
 import os
 import logging
-import sys
 import logging.config
 import argparse
-import logging
 from dataclasses import dataclass
 from PIL import Image
 import numpy as np
@@ -164,12 +162,12 @@ class ImageGridder:
         grid_tensor = tensor.clone()
         height, width = grid_tensor.shape
         self.logger.info(f"New image dimensions: x=[{width}], y=[{height}]")
-
+        ag = self.params.alpha_grid
         for y in range(0, height, self.params.grid_interval):
-            grid_tensor[y, :] = (1.0-self.params.alpha_grid) * grid_tensor[y, :] + self.params.alpha_grid * self.params.grid_color
+            grid_tensor[y, :] = (1.0-ag) * grid_tensor[y, :] + ag * self.params.grid_color
 
         for x in range(0, width, self.params.grid_interval):
-            grid_tensor[:, x] = (1.0-self.params.alpha_grid) * grid_tensor[:, x] + self.params.alpha_grid * self.params.grid_color
+            grid_tensor[:, x] = (1.0-ag) * grid_tensor[:, x] + ag * self.params.grid_color
 
         self.logger.info(f"Gridlines added with interval: {self.params.grid_interval}px")
 
@@ -201,7 +199,9 @@ class ImageGridder:
         Returns:
             str: The filename of the saved image.
         """
-        output_filename = f"{self.params.output_prefix}{self.source_prefix}{self.params.output_suffix}{self.source_ext}"
+        prefixes=f"{self.params.output_prefix}{self.source_prefix}"
+        suffixes=f"{self.params.output_suffix}{self.source_ext}"
+        output_filename = f"{prefixes}{suffixes}"
         self.logger.info(f"Saving cropped image as: {output_filename}")
 
         try:

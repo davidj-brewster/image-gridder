@@ -1,9 +1,6 @@
 from dataclasses import dataclass
 import torch
-import torch.nn.functional as F
 import torchvision.transforms.functional as TF
-from PIL import Image
-import numpy as np
 import logging
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QSlider, QLabel
 from PyQt6.QtCore import Qt

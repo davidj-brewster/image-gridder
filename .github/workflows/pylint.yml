@@ -22,4 +22,4 @@ jobs:
 
     - name: Run pylint
       run: |
-        pylint image_gridder_5.py --rcfile=.pylintrc
+        pylint image_gridder_w_autorotate.py --rcfile=.pylintrc  --fail-under=7

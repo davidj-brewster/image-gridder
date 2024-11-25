@@ -1,4 +1,8 @@
 torch 
+scikit-image
+opencv-python
 numpy 
 matplotlib 
 pillow
+PyQt6
+torchvision

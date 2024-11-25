@@ -46,14 +46,11 @@ Output is as follows
 
 ```bash
 
-INFO:auto_rotater:Using device: mps
 INFO:__main__:Using device: mps
 INFO:__main__:Loading image: example-image.jpg
-INFO:__main__:Cropping to bounding box: x=[0, 1331], y=[0, 998]
 INFO:auto_rotater:Best alignment angle: -2.80°
 INFO:__main__:New image dimensions: x=[1331], y=[998]
 INFO:__main__:Gridlines added with interval: 100px
-INFO:__main__:Saving cropped image as: cropped_example-image_focused.jpg
 INFO:__main__:Image saved as: cropped_example-image_focused.jpg - dimensions x=[1331], y=[998]
 ```
 

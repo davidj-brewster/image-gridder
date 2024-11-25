@@ -59,6 +59,11 @@ INFO:__main__:Image saved as: cropped_example-image_focused.jpg - dimensions x=[
 
 ![image](https://github.com/user-attachments/assets/1bff50cf-d320-4f12-aab7-c25948edf507)
 
+This gets much more interesting when combined with Claude, here we go:
+
+![image](https://github.com/user-attachments/assets/e510c311-25cf-48e1-ba2e-a8c28239bf0a)
+
+
 ### As a Python Module
 
 ```python 

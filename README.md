@@ -13,7 +13,7 @@ A Python tool for pre-processing images:
 
 # Inspiration
 
-claude.ai is surprisingly excellent at image segmentation and analysis but it can't transform images or superimpose its findings onto a modified image in the way that ChatGPT can do. By adding a grid (todo: with axis markings), claude can express its findings to a user-provided input file in terms of specific grid coordinates. This allows further interrogation and visual validation of the outputs.
+claude.ai is surprisingly excellent at image segmentation and analysis but it can't transform images or superimpose its findings onto a modified image in the way that ChatGPT can do. By adding a grid with axis markings, claude can express its findings to a user-provided input file in terms of specific grid coordinates. This allows further interrogation and visual validation of the outputs.
 
 ![image](https://github.com/user-attachments/assets/50f74ed4-7897-43e6-8367-729759ae72ea)
 

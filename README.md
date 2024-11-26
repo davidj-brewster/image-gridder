@@ -7,14 +7,14 @@ A Python tool for processing grayscale images by:
 - Autorotating along the vertical axis
 - Saving with customizable output names
 
-### Table of Contents
-**[Installation Instructions](#installation)**<br>
-**[Usage Instructions](#usage)**<br>
-**[Parameter Reference](#parameters)**<br>
-
 # Background
 
 claude.ai is surprisingly excellent at image segmentation and analysis but it can't transform images or superimpose its findings onto a modified image in the way that ChatGPT can do. By adding a grid (todo: with axis markings), claude can express its findings to a user-provided input file in terms of specific grid coordinates. This allows further interrogation and visual validation of the outputs.
+
+
+**[Installation Instructions](#installation)**<br>
+**[Usage Instructions](#usage)**<br>
+**[Parameter Reference](#parameters)**<br>
 
 ## Installation
 

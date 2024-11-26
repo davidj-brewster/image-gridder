@@ -40,7 +40,7 @@ INFO:__main__:Gridlines added with interval: 100px
 
 ![image](https://github.com/user-attachments/assets/1bff50cf-d320-4f12-aab7-c25948edf507)
 
-This gets much more interesting when combined with Claude, here we go:
+This gets much more interesting when combined with Claude, as in the earlier screenshot.
 
 ## As Python Module
 

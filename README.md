@@ -1,5 +1,7 @@
 # Image Gridder
 
+:toc: 
+
 A Python tool for processing grayscale images by:
 
 - Automatically cropping to content
